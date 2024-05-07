@@ -51,10 +51,7 @@ public class UtiliClass {
     }
 
     public void seleccionarComando(Keys ke, By locator){
-
         driver.findElement(locator).sendKeys(ke);
-
-
     }
 
     

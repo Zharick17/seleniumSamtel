@@ -11,7 +11,7 @@ public class Formulario extends UtiliClass {
 
     public By nombreUsuario = By.xpath("//input[@id='firstName']");
     public By apellidoUsuario = By.xpath("//input[@id='lastName']");
-    public By correoUsuario = By.xpath("//input[@id='lastName']");
+    public By correoUsuario = By.xpath("//input[@id='userEmail']");
     public By numeroUsuario = By.xpath("//input[@id='userNumber']");
     public By temasUsuario = By.xpath("//input[@id='subjectsInput']");
     public By direccionUsuario = By.xpath("//textarea[@id='currentAddress']");
