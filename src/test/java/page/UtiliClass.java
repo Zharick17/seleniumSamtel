@@ -54,6 +54,10 @@ public class UtiliClass {
         driver.findElement(locator).sendKeys(ke);
     }
 
+    public String getText(WebElement element){
+        return element.getText();
+    }
+
     
     
 }
