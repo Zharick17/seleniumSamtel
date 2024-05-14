@@ -14,6 +14,9 @@ public class ListaDesplegable extends UtiliClass {
 
     public By comboUno = By.xpath("//select[@id='combobox1']");
     public By comboDos = By.xpath("//select[@id='combobox2']");
+    public By bebida = By.xpath("//input[@type='radio' and @name='bebida' and @value='agua']");
+    public By comida = By.xpath("//input[@type='radio' and @name='comida2' and @value='dorada']");
+    public By comprLista = By.xpath("//input[@type='checkbox' and @name='listaCompra' and @value='carne']");
    
 
     public String seleccionarComboUno(){

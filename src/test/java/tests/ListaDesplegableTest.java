@@ -35,6 +35,24 @@ public class ListaDesplegableTest {
         assertEquals(lista.seleccionarComboDos(),"Plátano");
     }
 
+    @Test
+
+    public void seleccionarBebida(){
+       lista.click(lista.bebida); 
+    }
+
+    @Test
+
+    public void seleccionarComida(){
+        lista.click(lista.comida);
+    }
+
+    @Test
+
+    public void seleccionarLista(){
+        lista.click(lista.comprLista);
+    }
+
     @After
 
     public void fin(){
