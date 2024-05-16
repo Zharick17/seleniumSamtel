@@ -1,10 +1,13 @@
 package page;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
 public class UtiliClass {
     private WebDriver driver;
 
@@ -54,10 +57,21 @@ public class UtiliClass {
         driver.findElement(locator).sendKeys(ke);
     }
 
-    public String getText(WebElement element){
-        return element.getText();
+    public String getText(By locator){
+        return driver.findElement(locator).getText();
     }
 
-    
-    
+    public String getTextRadioButton(By locator) {
+        return driver.findElement(locator).getAttribute("Value");
+    }
+
+    public void selectValueDropdown(By locator, String value){
+        Select dropdown = new Select(driver.findElement(locator));
+        dropdown.selectByVisibleText(value);
+    }
+
+    public String getTextDropdownSelect(By locator){
+        Select dropdown = new Select(driver.findElement(locator));
+        return dropdown.getFirstSelectedOption().getText();
+    }
 }

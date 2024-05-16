@@ -12,10 +12,8 @@ public class ListaDesplegableTest {
     private WebDriver driver;
     private ListaDesplegable lista;
 
-
     @Before
-
-    public void inicio(){
+    public void inicio() {
         lista = new ListaDesplegable(driver);
         driver = lista.chromeDriverConnection();
         lista.Maximaze();
@@ -24,41 +22,38 @@ public class ListaDesplegableTest {
     }
 
     @Test
-
-    public void listaComboUno(){
-        assertEquals(lista.seleccionarComboUno(), "Huevos");
+    public void validarComboSimple() {
+        lista.selectValueDropdown(lista.comboSimple, "Huevos");
+        assertEquals(lista.getTextDropdownSelect(lista.comboSimple), "Huevos");
     }
 
     @Test
-
-    public void listaComboDos(){
-        assertEquals(lista.seleccionarComboDos(),"Plátano");
+    public void validarComboMultiple() {
+        lista.selectValueDropdown(lista.comboMultiple, "Plátano");
+        assertEquals(lista.getTextDropdownSelect(lista.comboMultiple), "Plátano");
     }
 
     @Test
-
-    public void seleccionarBebida(){
-       lista.click(lista.bebida); 
+    public void validarRadioBebidas() {
+        lista.click(lista.radioAguaOfBebidas);
+        assertEquals(lista.getTextRadioButton(lista.radioAguaOfBebidas), "agua");
     }
 
     @Test
-
-    public void seleccionarComida(){
-        lista.click(lista.comida);
+    public void validarRadioComidas() {
+        lista.click(lista.radioDoradoOfComida);
+        assertEquals(lista.getTextRadioButton(lista.radioDoradoOfComida), "dorada");
     }
 
     @Test
-
-    public void seleccionarLista(){
-        lista.click(lista.comprLista);
+    public void validarRadioListaCompras() {
+        lista.click(lista.radioCarneOfListaCompras);
+        assertEquals(lista.getTextRadioButton(lista.radioCarneOfListaCompras), "carne");
     }
 
     @After
-
-    public void fin(){
+    public void fin() {
         driver.quit();
     }
-
-
 
 }

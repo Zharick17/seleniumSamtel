@@ -37,7 +37,6 @@ public class FormularioTest {
     }
 
     @Test
-
     public void IngresarUnNombreConCaracteresEspeciales(){
 
         form.escribirText("Daniela@12.", form.nombreUsuario);
@@ -51,7 +50,6 @@ public class FormularioTest {
 
 
     @Test
-
     public void IngresarUnTelefonoConCaracteresEspeciales(){
 
         form.escribirText("Daniela", form.nombreUsuario);
@@ -63,12 +61,9 @@ public class FormularioTest {
 
     }
 
-     @After
-
+    @After
     public void fin(){
         driver.quit();
     }
-
-
     
 }
