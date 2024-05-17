@@ -15,5 +15,7 @@ public class ListaDesplegable extends UtiliClass {
     public By radioAguaOfBebidas = By.xpath("//input[@type='radio' and @name='bebida' and @value='agua']");
     public By radioDoradoOfComida = By.xpath("//input[@type='radio' and @name='comida2' and @value='dorada']");
     public By radioCarneOfListaCompras = By.xpath("//input[@type='checkbox' and @name='listaCompra' and @value='carne']");
+    public By botonImplicito = By.xpath("//button[@id='implicitWaitButton']");
+    public By botonExplicito = By.xpath("//button[@id='explicitWaitButton']");
     
 }

@@ -1,12 +1,17 @@
 package page;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UtiliClass {
     private WebDriver driver;
@@ -78,4 +83,10 @@ public class UtiliClass {
         driver.findElement(locator).sendKeys(value);
         driver.findElement(locator).sendKeys(Keys.ENTER);
     }
+
+    public void esperas (By locator){
+        WebDriverWait waits = new WebDriverWait(driver,  Duration.ofSeconds(1000));
+        WebElement element = waits.until(ExpectedConditions.elementToBeClickable(locator));
+    }  
+
 }

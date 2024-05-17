@@ -51,6 +51,19 @@ public class ListaDesplegableTest {
         assertEquals(lista.getTextRadioButton(lista.radioCarneOfListaCompras), "carne");
     }
 
+    @Test
+    public void validarBotonImplicito(){
+        lista.esperas(lista.botonImplicito);
+        lista.click(lista.botonImplicito);
+        
+    }
+
+    @Test
+    public void validarBotonExplicito(){
+        lista.esperas(lista.botonExplicito);
+        lista.click(lista.botonExplicito);
+    }
+
     @After
     public void fin() {
         driver.quit();
