@@ -16,7 +16,6 @@ public class Formulario extends UtiliClass {
     public By temasUsuario = By.xpath("//input[@id='subjectsInput']");
     public By direccionUsuario = By.xpath("//textarea[@id='currentAddress']");
     public By boton = By.xpath("//button[@id='submit']");
- 
- 
-    
+    public By inputSelect = By.xpath("//input[@id='react-select-3-input']");
+
 }

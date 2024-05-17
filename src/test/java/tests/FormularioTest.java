@@ -61,6 +61,12 @@ public class FormularioTest {
 
     }
 
+    @Test
+    public void seleccionarListaDesplegable(){
+        form.seleccionarComando(Keys.PAGE_DOWN, form.direccionUsuario);
+        form.selectListaAvanzadaByValue(form.inputSelect, "Uttar Pradesh");
+    }
+
     @After
     public void fin(){
         driver.quit();
