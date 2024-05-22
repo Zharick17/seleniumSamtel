@@ -52,16 +52,16 @@ public class ListaDesplegableTest {
     }
 
     @Test
-    public void validarBotonImplicito(){
-        lista.esperas(lista.botonImplicito);
+    public void validarBotonImplicito() {
         lista.click(lista.botonImplicito);
-        
+        assertEquals(lista.getText(lista.labelResultado), "HAS PULSADO EL BOTÓN IMPLICIT WAIT CON ÉXITO! :D");
+
     }
 
     @Test
-    public void validarBotonExplicito(){
-        lista.esperas(lista.botonExplicito);
+    public void validarBotonExplicito() {
         lista.click(lista.botonExplicito);
+        assertEquals(lista.getText(lista.labelResultado), "HAS PULSADO EL BOTÓN EXPLICIT WAIT CON ÉXITO! :D");
     }
 
     @After
