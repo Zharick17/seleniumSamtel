@@ -24,6 +24,11 @@ public class UtiliClass {
         return driver;
     }
 
+    public WebElement buscarElementoConTiempoDeEspera(By locator){
+        WebDriverWait waits = new WebDriverWait(driver,  Duration.ofSeconds(5000));
+        return waits.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
     public void Maximaze() {
         driver.manage().window().maximize();
     }
@@ -33,7 +38,7 @@ public class UtiliClass {
     }
 
     public void click(By locator) {
-        driver.findElement(locator).click();
+        buscarElementoConTiempoDeEspera(locator).click();
     }
 
     public WebElement Iframe(By locator) {
@@ -41,7 +46,7 @@ public class UtiliClass {
     }
 
     public void escribirText(String inputText, By locator) {
-        driver.findElement(locator).sendKeys(inputText);
+        buscarElementoConTiempoDeEspera(locator).sendKeys(inputText);
     }
 
     public void acceder(String url) {
@@ -49,43 +54,38 @@ public class UtiliClass {
     }
 
     public void scrol(By locator) {
-        WebElement iframe = driver.findElement(locator);
+        WebElement iframe = buscarElementoConTiempoDeEspera(locator);
         new Actions(driver)
                 .scrollToElement(iframe)
                 .perform();
 
     }
 
-    public void seleccionarComando(Keys ke, By locator) {
-        driver.findElement(locator).sendKeys(ke);
+    public void seleccionarComando(Keys key, By locator) {
+        buscarElementoConTiempoDeEspera(locator).sendKeys(key);
     }
 
     public String getText(By locator) {
-        return driver.findElement(locator).getText();
+        return buscarElementoConTiempoDeEspera(locator).getText();
     }
 
     public String getTextRadioButton(By locator) {
-        return driver.findElement(locator).getAttribute("Value");
+        return buscarElementoConTiempoDeEspera(locator).getAttribute("Value");
     }
 
     public void selectValueDropdown(By locator, String value) {
-        Select dropdown = new Select(driver.findElement(locator));
+        Select dropdown = new Select(buscarElementoConTiempoDeEspera(locator));
         dropdown.selectByVisibleText(value);
     }
 
     public String getTextDropdownSelect(By locator) {
-        Select dropdown = new Select(driver.findElement(locator));
+        Select dropdown = new Select(buscarElementoConTiempoDeEspera(locator));
         return dropdown.getFirstSelectedOption().getText();
     }
 
     public void selectListaAvanzadaByValue(By locator, String value){
-        driver.findElement(locator).sendKeys(value);
-        driver.findElement(locator).sendKeys(Keys.ENTER);
+        buscarElementoConTiempoDeEspera(locator).sendKeys(value);
+        buscarElementoConTiempoDeEspera(locator).sendKeys(Keys.ENTER);
     }
-
-    public void esperas (By locator){
-        WebDriverWait waits = new WebDriverWait(driver,  Duration.ofSeconds(1000));
-        WebElement element = waits.until(ExpectedConditions.elementToBeClickable(locator));
-    }  
 
 }
