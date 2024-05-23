@@ -26,7 +26,7 @@ public class UtiliClass {
 
     public WebElement buscarElementoConTiempoDeEspera(By locator){
         WebDriverWait waits = new WebDriverWait(driver,  Duration.ofSeconds(5000));
-        return waits.until(ExpectedConditions.elementToBeClickable(locator));
+        return waits.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
     public void Maximaze() {
