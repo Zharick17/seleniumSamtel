@@ -1,8 +1,11 @@
 package page;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,7 +29,7 @@ public class UtiliClass {
 
     public WebElement buscarElementoConTiempoDeEspera(By locator){
         WebDriverWait waits = new WebDriverWait(driver,  Duration.ofSeconds(5000));
-        return waits.until(ExpectedConditions.elementToBeClickable(locator));
+        return waits.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
     public void Maximaze() {
@@ -38,7 +41,12 @@ public class UtiliClass {
     }
 
     public void click(By locator) {
-        buscarElementoConTiempoDeEspera(locator).click();
+        WebElement element = buscarElementoConTiempoDeEspera(locator);
+        try {
+            element.click();
+        } catch (ElementClickInterceptedException e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+        }
     }
 
     public WebElement Iframe(By locator) {
@@ -47,6 +55,14 @@ public class UtiliClass {
 
     public void escribirText(String inputText, By locator) {
         buscarElementoConTiempoDeEspera(locator).sendKeys(inputText);
+    }
+
+    public void subirArchivo(String rutaArchivo, By locator){
+
+        WebElement campoArchivo = buscarElementoConTiempoDeEspera(locator);
+        File archivo = new File(rutaArchivo);
+        campoArchivo.sendKeys(archivo.getAbsolutePath());
+
     }
 
     public void acceder(String url) {
@@ -87,5 +103,7 @@ public class UtiliClass {
         buscarElementoConTiempoDeEspera(locator).sendKeys(value);
         buscarElementoConTiempoDeEspera(locator).sendKeys(Keys.ENTER);
     }
+
+
 
 }

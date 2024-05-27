@@ -17,5 +17,9 @@ public class Formulario extends UtiliClass {
     public By direccionUsuario = By.xpath("//textarea[@id='currentAddress']");
     public By boton = By.xpath("//button[@id='submit']");
     public By inputSelect = By.xpath("//input[@id='react-select-3-input']");
-
+    public By campoFecha = By.xpath("//input[@id='dateOfBirthInput']");
+    public By fecha= By.xpath("//div[@aria-label='Elegir jueves, 7 de marzo de 2024']");
+    public By generoMujer = By.xpath("//input[@id='gender-radio-2']");
+    public By pasatiempoMusica = By.xpath("//*[@id=\"hobbies-checkbox-3\"]");
+    public By seleccionarArchivo = By.xpath("//input[@id='uploadPicture']");
 }
